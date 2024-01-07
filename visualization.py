@@ -5,4 +5,4 @@ import graphviz
 
 machine = GraphMachine(task, states=states, transitions=transitions, initial='open')
 
-machine.get_graph().draw('jira_task_fsm_diagram.png', prog='dot')
+machine.get_graph().draw('jira_task_fsm_visualization.png', prog='dot')
