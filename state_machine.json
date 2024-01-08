@@ -1,0 +1,71 @@
+{
+  "states": [
+    "open",
+    "closed",
+    "resolved",
+    "inprogress",
+    "reopened"
+  ],
+  "transitions": [
+    {
+      "trigger": "start_progress",
+      "source": "open",
+      "dest": "inprogress",
+      "conditions": null
+    },
+    {
+      "trigger": "resolve_and_close",
+      "source": "inprogress",
+      "dest": "closed",
+      "conditions": "is_tester"
+    },
+    {
+      "trigger": "stop_progress",
+      "source": "inprogress",
+      "dest": "open",
+      "conditions": null
+    },
+    {
+      "trigger": "resolve",
+      "source": "inprogress",
+      "dest": "resolved",
+      "conditions": null
+    },
+    {
+      "trigger": "resolve_and_close",
+      "source": "open",
+      "dest": "closed",
+      "conditions": "is_tester"
+    },
+    {
+      "trigger": "close",
+      "source": "resolved",
+      "dest": "closed",
+      "conditions": "is_tester"
+    },
+    {
+      "trigger": "reopen",
+      "source": "closed",
+      "dest": "reopened",
+      "conditions": null
+    },
+    {
+      "trigger": "resolve",
+      "source": "reopened",
+      "dest": "resolved",
+      "conditions": null
+    },
+    {
+      "trigger": "resolve_and_close",
+      "source": "reopened",
+      "dest": "closed",
+      "conditions": "is_tester"
+    },
+    {
+      "trigger": "start_progress",
+      "source": "reopened",
+      "dest": "inprogress",
+      "conditions": null
+    }
+  ]
+}
